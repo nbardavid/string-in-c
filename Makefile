@@ -1,5 +1,5 @@
 GCC=cc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -g3
 SRCDIR=srcs
 OBJDIR=objs
 SRCS=$(wildcard $(SRCDIR)/*.c)
@@ -16,7 +16,9 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	@printf "$(GREEN)Linking...$(RESET)\n"
 	@$(GCC) $(CFLAGS) $(OBJS) -o $(TARGET)
-	@printf "$(GREEN)Compilation successful!$(RESET)\n"
+	@printf "$(GREEN)╭────────────────────────────────────────────╮\n"
+	@printf "│              Compiled Successfully         │\n"
+	@printf "╰────────────────────────────────────────────╯\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
