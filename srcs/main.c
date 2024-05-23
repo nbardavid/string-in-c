@@ -6,11 +6,10 @@
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:32:31 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/22 12:20:05 by nbardavi         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:54:33 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,19 +37,32 @@ void str_destroy(string *str){
     str->capacity = 0;
 }
 
-void str_set(string *str, const char *content){
-    int len = content ? strlen(content) : 0;
-    char *temp_str = realloc(str->data, len + 1);
-    if (temp_str) {
-        str->data = temp_str;
-        if (content) {
-            memcpy(str->data, content, len + 1);
-        } else {
-            str->data[0] = '\0';
-        }
-        str->size = len;
-        str->capacity = len + 1;
-    }
+void str_assign(string *str, const char *content){
+	size_t len = strlen(content);
+	str_assign_right_size(str, len);
+	memcpy(str->data, content, len + 1);
+	str->size = len;
+}
+
+void str_assign_right_size(string *str, size_t len){
+	while(str->capacity < len + 1){
+		str->data = realloc (str->data, str->capacity << 2);
+		str->capacity = str->capacity << 1;
+
+	}
+}
+
+void str_insert(string *str, const char *str2, size_t i){
+	size_t len = strlen(str2);
+	str_assign_right_size(str, len + str->size);
+	memmove(str->data + i + len, str->data + i, str -> size - i + 1);
+	memcpy(str->data + i, str2, len);
+	str->size += len;
+}
+
+void str_erase(string *str, size_t pos, size_t len){
+	memmove(str->data + pos, str->data + pos + len, str->size - pos - len + 1);
+	str->size -= len;
 }
 
 //to do: fancy infos
@@ -69,7 +81,7 @@ int main(int argc, char **argv){
     /* Testing str_resize && str_set */
     str_resize(&str, 8);
     str_info(&str);
-    str_set(&str, "HELLO WORLD!");
+    str_assign(&str, "HELLO WORLD!");
     str_info(&str);
     str_resize(&str, 25);
     str_info(&str);
@@ -93,7 +105,12 @@ int main(int argc, char **argv){
 	str_init(&end, " world!");
 	str_append(&app, &end);
 	str_info(&app);
-	str_info(&end);
+	// str_info(&end);
+	
+	str_insert(&app, "UUUU", 5);
+	str_info(&app);
+	str_erase(&app, 5, 4);
+	str_info(&app);
 
 	str_destroy(&str);
 	str_destroy(&app);
