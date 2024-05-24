@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   length.c                                           :+:      :+:    :+:   */
+/*   str_push_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:20:42 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/22 11:28:41 by nbardavi         ###   ########.fr       */
+/*   Created: 2024/05/22 12:33:32 by nbardavi          #+#    #+#             */
+/*   Updated: 2024/05/24 15:44:35 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/c_string.h"
+#include "../../include/c_string.h"
+#include <stdlib.h>
 
-int str_length(const string *str){
-    return str->size;
+void str_push_back(string *str, size_t c){
+	str_assign_right_size(str, str->size + 1);
+	str->data[str->size] = c;
+	str->size++;
 }
