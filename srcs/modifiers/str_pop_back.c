@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   capacity.c                                         :+:      :+:    :+:   */
+/*   str_pop_back.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:20:09 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/22 11:28:35 by nbardavi         ###   ########.fr       */
+/*   Created: 2024/05/24 14:56:27 by nbardavi          #+#    #+#             */
+/*   Updated: 2024/05/24 15:18:44 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/c_string.h"
+#include "../../include/c_string.h"
 
-int str_capacity(const string *str){
-    return str->capacity;
+void str_pop_back(string *str){
+	str->data[str->size - 1] = '\0';
+	str->size--;
 }

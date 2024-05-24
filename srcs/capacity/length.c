@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve.c                                          :+:      :+:    :+:   */
+/*   length.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 11:22:07 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/23 16:41:33 by nbardavi         ###   ########.fr       */
+/*   Created: 2024/05/22 11:20:42 by nbardavi          #+#    #+#             */
+/*   Updated: 2024/05/24 15:18:44 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/c_string.h"
-#include <stdlib.h>
+#include "../../include/c_string.h"
 
-void str_reserve(string *str, size_t reserve){
-    if (reserve > str->capacity){
-        str->data = realloc(str->data, reserve);
-		str->capacity = reserve;
-    }
+int str_length(const string *str){
+    return str->size;
 }

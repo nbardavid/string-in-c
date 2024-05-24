@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_back.c                                        :+:      :+:    :+:   */
+/*   shrink_to_fit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 12:33:32 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/23 09:45:29 by nbardavi         ###   ########.fr       */
+/*   Created: 2024/05/22 11:21:11 by nbardavi          #+#    #+#             */
+/*   Updated: 2024/05/24 15:18:44 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/c_string.h"
+#include "../../include/c_string.h"
 #include <stdlib.h>
 
-void str_push_back(string *str, char c){
-	if (str->capacity > str->size + 1){
-		str->data[str->size] = c;
-	}
-	else {
-		str->data = realloc(str->data, str->capacity + 1);
-		if (!str->data) return;
-		str->data[str->size] = c;
-		str->size++;
-		str->capacity++;
+void str_shrink_to_fit(string *str){
+	if (str->capacity != str->size + 1){
+		str->data = realloc(str->data, str->size + 1);
+		str->capacity = str->size + 1;
 	}
 }

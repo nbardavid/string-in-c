@@ -1,0 +1,162 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/append.o",
+      "srcs/append.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/append.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/append.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/capacity.o",
+      "srcs/capacity.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/capacity.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/capacity.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/clear.o",
+      "srcs/clear.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/clear.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/clear.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/empty.o",
+      "srcs/empty.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/empty.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/empty.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/length.o",
+      "srcs/length.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/length.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/length.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/main.o",
+      "srcs/main.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/main.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/push_back.o",
+      "srcs/push_back.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/push_back.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/push_back.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/reserve.o",
+      "srcs/reserve.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/reserve.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/reserve.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/resize.o",
+      "srcs/resize.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/resize.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/resize.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g3",
+      "-c",
+      "-o",
+      "objs/shrink_to_fit.o",
+      "srcs/shrink_to_fit.c"
+    ],
+    "directory": "/home/nbardavi/Desktop/perso/string-in-c",
+    "file": "/home/nbardavi/Desktop/perso/string-in-c/srcs/shrink_to_fit.c",
+    "output": "/home/nbardavi/Desktop/perso/string-in-c/objs/shrink_to_fit.o"
+  }
+]

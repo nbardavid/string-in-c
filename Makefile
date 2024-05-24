@@ -1,8 +1,8 @@
 GCC=cc
-CFLAGS=-Wall -Wextra -Werror -g3
+CFLAGS=-Wall -Wextra -Werror -g3 -Iinclude
 SRCDIR=srcs
 OBJDIR=objs
-SRCS=$(wildcard $(SRCDIR)/*.c)
+SRCS=$(wildcard $(SRCDIR)/**/*.c $(SRCDIR)/*.c)
 OBJS=$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 TARGET=string-in-c
 
@@ -21,7 +21,7 @@ $(TARGET): $(OBJS)
 	@printf "╰────────────────────────────────────────────╯\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@mkdir -p $(OBJDIR)
+	@mkdir -p $(dir $@)
 	@printf "$(BLUE)Compiling $<...$(RESET)\n"
 	@$(GCC) $(CFLAGS) -c $< -o $@
 	@printf "$(GREEN)Compiled $< successfully!$(RESET)\n"
@@ -39,3 +39,9 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# Rule to generate compile_commands.json using Bear
+bear: clean
+	@printf "$(BLUE)Generating compile_commands.json with Bear...$(RESET)\n"
+	@bear -- make $(TARGET)
+	@printf "$(GREEN)Generated compile_commands.json successfully!$(RESET)\n"
