@@ -6,7 +6,7 @@
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:32:31 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/24 15:24:19 by nbardavi         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:25:12 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,24 +70,62 @@ int main(int argc, char **argv){
 	// str_info(&str);
 
     /* Testing str_append */
-	string app = STRING_L("Hello");
-	string end = STRING_L(" world!");
-	str_append(&app, &end);
-	str_info(&app);
-	// str_info(&end);
+	// string app = STRING_L("Hello");
+	// string end = STRING_L(" world!");
+	// str_append(&app, &end);
+	// str_info(&app);
+	// // str_info(&end);
+	// 
+	// str_insert(&app, "UUUU", 5);
+	// str_info(&app);
+	// str_erase(&app, 5, 4);
+	// str_info(&app);
+	// 
+	// str_pop_front(&app);
+	// str_info(&app);
+	// printf("\"o\": %zu\n", str_find(&app, "o"));
+	// printf("\"o\": %zu\n", str_rfind(&app, "o"));
+	// string test = str_substr(&app, 0, 4);
+	// str_info(&test);
+	//
+	// // str_destroy(&str);
+	// str_destroy(&app);
+	// str_destroy(&end);
 	
-	str_insert(&app, "UUUU", 5);
-	str_info(&app);
-	str_erase(&app, 5, 4);
-	str_info(&app);
-	
-	str_pop_front(&app);
-	str_info(&app);
-	printf("\"o\": %zu\n", str_find(&app, "o"));
-	printf("\"o\": %zu", str_rfind(&app, "o"));
+	string s1 = STRING_L(LOREM);
+	string s2 = STRING_L(LOREM2);
+	#include <time.h>
+    clock_t start, end;
+    double cpu_time_used;
 
-	// str_destroy(&str);
-	str_destroy(&app);
-	str_destroy(&end);
+
+    start = clock();
+	for (int i = 0; i < 10000000; i++){
+		// volatile int temp = strcmp(s1.data, s2.data);
+		int temp = str_compare(s1.data, s2.data);
+		(void)temp;
+	}
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Temps d'exécution strcmp via str_compare : %f secondes\n", cpu_time_used);
+    
+	start = clock();
+	for (int i = 0; i < 100000000; i++){
+		str_compare_simd(&s1, &s2);
+	}
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Temps d'exécution str_compare_simd() : %f secondes\n", cpu_time_used);
+	// str_info(&s1);
+	//
+	start = clock();
+	for (int i = 0; i < 1000000000; i++){
+		int temp = strcmp(s1.data, s2.data);
+		(void)temp;
+	}
+	end = clock();
+	cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+	printf("Temps d'exécution strcmp : %f secondes\n", cpu_time_used);
+
     return 0;
 }

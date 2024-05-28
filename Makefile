@@ -1,5 +1,5 @@
 GCC=cc
-CFLAGS=-Wall -Wextra -Werror -g3 -Iinclude
+CFLAGS=-Wall -Wextra -Werror -g3 -mtune=native -march=native -O3 -fomit-frame-pointer -Iinclude -mavx -mavx2
 SRCDIR=srcs
 OBJDIR=objs
 SRCS=$(wildcard $(SRCDIR)/**/*.c $(SRCDIR)/*.c)
@@ -17,7 +17,7 @@ $(TARGET): $(OBJS)
 	@printf "$(GREEN)Linking...$(RESET)\n"
 	@$(GCC) $(CFLAGS) $(OBJS) -o $(TARGET)
 	@printf "$(GREEN)╭────────────────────────────────────────────╮\n"
-	@printf "│              Compiled Successfully         │\n"
+	@printf "│           Compiled Successfully            │\n"
 	@printf "╰────────────────────────────────────────────╯\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c

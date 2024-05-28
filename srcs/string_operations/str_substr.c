@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_find.c                                         :+:      :+:    :+:   */
+/*   str_substr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbardavi <nbabardavid@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:44:46 by nbardavi          #+#    #+#             */
-/*   Updated: 2024/05/27 14:11:33 by nbardavi         ###   ########.fr       */
+/*   Created: 2024/05/27 09:18:06 by nbardavi          #+#    #+#             */
+/*   Updated: 2024/05/27 09:31:13 by nbardavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/c_string.h"
 #include <string.h>
-#include <immintrin.h>
 
-size_t str_find(const string *str, const char *to_find){
-	size_t len = strlen(to_find);
-	size_t i = 0; size_t j = 0; while(i < str->size - len){
-		while(str->data[i] == to_find[j] && i < str->size - len){
-			if (to_find[j + 1] == '\0')
-				return i - j;
-			j++; i++;
-		}
-		i++; j = 0;
+string str_substr(string *str, size_t pos, size_t len){
+	if (pos >= str->size || pos < 0 || len == 0 || len - pos > str->size){
+		return string_init_str("");
 	}
-	return str->size;
+	string newStr = string_init_str("");
+	memcpy(newStr.data, str->data + pos, len);
+	newStr.data[len] = '\0';
+	return newStr;
 }
